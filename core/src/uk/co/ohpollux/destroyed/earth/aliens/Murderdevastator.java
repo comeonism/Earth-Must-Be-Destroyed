@@ -14,6 +14,7 @@ public class Murderdevastator extends Alien {
     public Murderdevastator(Vector2 position) {
 	setTexture(new Texture("murderdevastators.png"));
 	setWeapon(new WeakWeapon());
+	setDamageMultiplier(1.5f);
 	setName("Murderdevastator");
 
 	if (position == null)

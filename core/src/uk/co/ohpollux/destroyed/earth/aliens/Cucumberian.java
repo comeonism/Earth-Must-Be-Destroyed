@@ -14,6 +14,7 @@ public class Cucumberian extends Alien {
     public Cucumberian(Vector2 position) {
 	setTexture(new Texture("cucumberians.png"));
 	setWeapon(new PowerfulWeapon());
+	setDamageMultiplier(1);
 	setName("Cucumberian");
 
 	if (position == null)

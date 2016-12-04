@@ -3,7 +3,7 @@ package uk.co.ohpollux.destroyed.earth.desktop;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 
-import uk.co.ohpollux.destroyed.earth.EarthDestroyed;
+import uk.co.ohpollux.destroyed.earth.general.EarthDestroyed;
 
 public class DesktopLauncher {
     public static void main(String[] arg) {

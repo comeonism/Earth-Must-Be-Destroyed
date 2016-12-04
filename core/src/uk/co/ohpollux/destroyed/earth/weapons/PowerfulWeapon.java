@@ -2,7 +2,7 @@ package uk.co.ohpollux.destroyed.earth.weapons;
 
 public class PowerfulWeapon extends Weapon implements WeaponInterface {
     public PowerfulWeapon() {
-	setDamage(10);
+	setDamage(5);
 	setName("Super Powerful Weapon");
     }
 

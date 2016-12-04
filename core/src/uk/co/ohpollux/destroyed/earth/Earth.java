@@ -5,19 +5,22 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Vector2;
 
-public final class Earth {
-    private static Earth instance = null;
+import uk.co.ohpollux.destroyed.earth.general.Damageable;
+import uk.co.ohpollux.destroyed.earth.general.LargeBar;
 
-    private int hp;
-    private Texture normal = new Texture("earthLight.png");
-    private Texture hit = new Texture("earthDark.png");
+public final class Earth extends Damageable {
+    private static Earth instance = null;
     private static Vector2 location;
 
-    private float offset = 30;
+    private static final Vector2 barLocation = new Vector2(50, Gdx.graphics.getHeight() - 50);
+    private static final Texture normal = new Texture("earth/earthLight.png");
+    private static final Texture destroyed = new Texture("earth/earthDark.png");
+
+    private static final float offset = 30;
 
     private Earth() {
+	super();
 	location = new Vector2(getX(), getY());
-	hp = 100;
     }
 
     private float getX() {
@@ -26,18 +29,6 @@ public final class Earth {
 
     private float getY() {
 	return (Gdx.graphics.getHeight() / 2) - (normal.getHeight() / 2);
-    }
-
-    public static Earth getInstance() {
-	if (instance == null) {
-	    instance = new Earth();
-	}
-
-	return instance;
-    }
-
-    public Vector2 getPosition() {
-	return location;
     }
 
     public boolean isColliding(Circle bulletCircle) {
@@ -53,20 +44,39 @@ public final class Earth {
 	return collides;
     }
 
-    public boolean isDead() {
-	return hp <= 0;
-    }
-
-    public void decreaseHp(float damage) {
-	hp -= damage;
-    }
-
     public Texture getEarthTexture() {
-	return normal;
+	if (getHp() > 0)
+	    return normal;
+	else
+	    return destroyed;
     }
 
-    public Texture getEarthHurtTexture() {
-	return hit;
+    public static Earth getInstance() {
+	if (instance == null) {
+	    instance = new Earth();
+	}
+
+	return instance;
+    }
+
+    public Vector2 getPosition() {
+	return location;
+    }
+
+    public Vector2 getBarLocation() {
+	return barLocation;
+    }
+
+    protected Texture getRedHpBar() {
+	return new LargeBar("earth/healthBarRed.png", barLocation);
+    }
+
+    protected Texture getOrangeHpBar() {
+	return new LargeBar("earth/healthBarOrange.png", barLocation);
+    }
+
+    protected Texture getGreenHpBar() {
+	return new LargeBar("earth/healthBarGreen.png", barLocation);
     }
 
 }

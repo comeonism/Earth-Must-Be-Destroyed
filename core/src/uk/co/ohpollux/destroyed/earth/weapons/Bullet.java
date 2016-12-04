@@ -19,10 +19,6 @@ public class Bullet {
 	this.damage = damage;
     }
 
-    public Vector2 getPosition() {
-	return position;
-    }
-
     public void updatePosition(Earth earth) {
 	position.x += speed;
 
@@ -32,22 +28,14 @@ public class Bullet {
 	}
     }
 
-    public Texture getTexture() {
-	return image;
-    }
-
-    private float getDamage() {
-	return damage;
-    }
-
-    public boolean exists() {
-	return exists;
-    }
-
-    public Circle getBulletCircle() {
+    private Circle getBulletCircle() {
 	Rectangle bulletRect = new Rectangle(position.x, position.y, image.getWidth(), image.getHeight());
 	return new Circle(new Vector2(calculateBulletX(bulletRect), calculateBulletY(bulletRect)),
 		calculateBulletRadius(bulletRect));
+    }
+
+    private float calculateBulletX(Rectangle rect) {
+	return rect.getX() + calculateBulletRadius(rect);
     }
 
     private float calculateBulletRadius(Rectangle rect) {
@@ -58,7 +46,20 @@ public class Bullet {
 	return rect.getY() + (rect.getHeight() / 2);
     }
 
-    private float calculateBulletX(Rectangle rect) {
-	return rect.getX() + calculateBulletRadius(rect);
+    private float getDamage() {
+	return damage;
     }
+
+    public Vector2 getPosition() {
+	return position;
+    }
+
+    public Texture getTexture() {
+	return image;
+    }
+
+    public boolean exists() {
+	return exists;
+    }
+
 }

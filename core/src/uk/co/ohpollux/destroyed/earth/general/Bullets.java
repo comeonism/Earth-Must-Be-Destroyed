@@ -1,10 +1,11 @@
-package uk.co.ohpollux.destroyed.earth;
+package uk.co.ohpollux.destroyed.earth.general;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import uk.co.ohpollux.destroyed.earth.Earth;
 import uk.co.ohpollux.destroyed.earth.weapons.Bullet;
 
 public class Bullets {
@@ -37,15 +38,6 @@ public class Bullets {
 	while (iter.hasNext()) {
 	    Bullet bullet = iter.next();
 	    batch.draw(bullet.getTexture(), bullet.getPosition().x, bullet.getPosition().y);
-
-	    // TODO: remove
-	    // ShapeRenderer srDebugCircle = new ShapeRenderer();
-	    // srDebugCircle.begin(ShapeType.Filled);
-	    // srDebugCircle.setColor(Color.BLACK);
-	    // srDebugCircle.circle(bullet.getBulletCircle().x,
-	    // bullet.getBulletCircle().y,
-	    // bullet.getBulletCircle().radius);
-	    // srDebugCircle.end();
 	}
     }
 }
