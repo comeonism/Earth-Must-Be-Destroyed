@@ -67,14 +67,17 @@ public final class Earth extends Damageable {
 	return barLocation;
     }
 
+    @Override
     protected Texture getRedHpBar() {
 	return new LargeBar("earth/healthBarRed.png", barLocation);
     }
 
+    @Override
     protected Texture getOrangeHpBar() {
 	return new LargeBar("earth/healthBarOrange.png", barLocation);
     }
 
+    @Override
     protected Texture getGreenHpBar() {
 	return new LargeBar("earth/healthBarGreen.png", barLocation);
     }
